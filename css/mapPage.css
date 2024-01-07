@@ -1,0 +1,59 @@
+#map {
+    background: #073b4c;
+    height: calc(100vh - 56px);
+}
+
+/* dropdown */
+.dropdown {
+    margin-top: 15px;
+}
+
+.li-dropdown {
+    text-align: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+li:hover {
+    background-color: #333; /* Altere a cor de fundo ao passar o mouse sobre o item da lista */
+}
+
+/* navbar */
+.navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+
+/* Adicione isso ao seu arquivo de estilo CSS */
+.modal {
+    z-index: 9999; /* Ou qualquer valor maior do que o z-index do mapa do Leaflet */
+}
+
+.square {
+    width: 100%;
+    height: 100px;
+    background-color: lightblue;
+    margin: 5px;
+}
+
+p {
+    text-align: center;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.nr-fretes {
+    padding-top: 16px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/mapPage.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/nouislider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.43.0/apexcharts.min.css" integrity="sha512-nnNXPeQKvNOEUd+TrFbofWwHT0ezcZiFU5E/Lv2+JlZCQwQ/ACM33FxPoQ6ZEFNnERrTho8lF0MCEH9DBZ/wWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Incluir Geojson -->
+    <script src="data/countries.geojson" type="text/javascript"></script>
+    <script src="data/labels.geojson" type="text/javascript"></script>
+    <script src="data/Fretes.geojson" type="text/javascript"></script>
+    <script src="data/Portos.geojson" type="text/javascript"></script>
+    <script src="data/Rotas.geojson" type="text/javascript"></script>
+</head>
+  <body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+
+        <!-- navbar brand -->
+        <a class="navbar-brand" href="#">Medieval Vessels</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+          <!-- navbar items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Mapa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gráficos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- map container -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12" id="map"></div>
+      </div>
+    </div>
+
+    <!-- footer filters -->
+    <div class="container">
+      <footer class="footer fixed-bottom bg-dark" >
+        <ul class="nav justify-content-center pb-3">
+
+          <!-- 1st dropdown -->
+          <div class="dropdown" id="categoria-dropdown">
+            <button class="btn btn-dark btn-sm dropdown-toggle me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="btn-categoria">
+              Selecione uma categoria
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Origem</a></li>
+              <li><a class="dropdown-item" href="#">Destino</a></li>
+              <li><a class="dropdown-item" href="#">Embarcação</a></li>
+            </ul>
+          </div>
+
+          <!-- 2nd dropdown -->
+          <div class="dropdown" id="opcao-dropdown">
+            <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Selecione uma opção
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+        </ul>
+      </footer>
+    </div>
+     
+
+    <!-- modal para as popup -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Conteúdo do modal será inserido aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/nouislider.js"></script>
+    <script src="js/wNumb.js"></script>
+    <script src="js/mergeTooltip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.43.0/apexcharts.min.js" integrity="sha512-vv0F8Er+ByFK3l86WDjP5Zc0h8uxNWPzF+l4wGK0/BlHWxDiFHbYr/91dn8G0OO8tTnN40L4s2Whom+X2NxPog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/script-map.js"></script>
+    
+</body>
+</html>
